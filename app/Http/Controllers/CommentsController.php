@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
-
+use App\Mail\CommentRecevied;
 
 class CommentsController extends Controller
 {
@@ -21,16 +21,16 @@ class CommentsController extends Controller
     
          ]);
         
-        
-
-        
-        $post->comments()->create([
+     
+        $comment = $post->comments()->create([
             'name' => request('name'),
             'text' => request('text'),
 
         ]);
+
+        \Mail::to($post->user)->send(new CommentRecevied($post, $comment));
         
-        return redirect('/posts/'.$post->id);
+        return redirect('posts/'.$post->id);
            
     }
 

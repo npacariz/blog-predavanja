@@ -4,7 +4,7 @@
 
         <div class="blog-post">
             <h2 class="blog-post-title">{{$posts->title}}</h2>
-            <p class="blog-post-meta"> {{$posts->created_at}} by  {{$posts->user->name}}</p>
+            <p class="blog-post-meta"> {{$posts->created_at}} by  <a href="/users/{{$posts->user->id}}">{{$posts->user->name}}</a></p>
 
             <p>{{$posts->body}}</p>
             
