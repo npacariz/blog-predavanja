@@ -36,4 +36,4 @@ Route::post('/login', 'LoginController@store');
 
 Route::get('/users/{user}', 'UserController@show');
 
-Route::get('/posts/tags/{name}', 'TagController@show');
+Route::get('/posts/tags/{tag}', 'TagController@show');
