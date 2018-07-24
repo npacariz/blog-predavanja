@@ -11,7 +11,7 @@ class TagController extends Controller
     {
        
         $TagModel = Tag::whereName($name)->first();
-        $posts = $TagModel->posts;
+        $posts = $TagModel->posts()->latest()->paginate(10);
         
         return view('posts.index', compact('posts'));    
     }

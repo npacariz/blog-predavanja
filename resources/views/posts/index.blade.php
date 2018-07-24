@@ -5,7 +5,7 @@
         @foreach($posts as $post)
 
             <div class="blog-post">
-                <a href="posts/{{$post->id}}"> <h2 class="blog-post-title">{{$post->title}}</h2></a> 
+                <a href="/posts/{{$post->id}}"> <h2 class="blog-post-title">{{$post->title}}</h2></a> 
                 <p class="blog-post-meta"> {{$post->created_at}} by <a href="/users/{{$post->user->id}}">{{$post->user->name}}</a></p>
                 <p>Tags:
                 @foreach($post->tags as $tag)

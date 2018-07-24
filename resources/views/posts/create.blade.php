@@ -17,11 +17,23 @@
       @include('partials.errors-message', ['fieldName' =>  'body'])
 
     </div>
+
+    @if(count($tags))
+        <div class="form-group form-check">
+            <label class="form-check-label" for="published">Tags:</label>
+          <br>
+          @foreach($tags as $tag)
+            <input type= 'checkbox' name='tags[]' 
+            value={{$tag->id}} class="form-check-input">{{$tag->name}}<br>
+          @endforeach
+      </div>
+    @endif
     
 
 
+
     <div class="form-group form-check">
-        <input name='published' value="1"  type="checkbox" class="form-check-input" checked>
+        <input name='published' value="1" type="checkbox" class="form-check-input" checked>
         <label class="form-check-label" for="published">Publish</label>
     </div>
 
